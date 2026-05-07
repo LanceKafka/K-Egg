@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Egg | Our Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Passion+One:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="menu-page">
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                 <div class="logo"><img src="images/logoo.jpg" id="logoo"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="promos.html">Promos</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="cart-icon">🛒</div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="menu-intro">
+            <h2>OUR MENU</h2>
+            <p>Fresh korean-style snacks made with love</p>
+            <input type="text" placeholder="Search menu..." class="search-bar">
+        </section>
+
+        <section class="menu-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="sandwiches">Sandwiches</button>
+            <button class="filter-btn" data-filter="rice">Rice</button>
+            <button class="filter-btn" data-filter="ramen">Ramen</button>
+            <button class="filter-btn" data-filter="snacks">Snacks</button>
+            <button class="filter-btn" data-filter="drinks">Drinks</button>
+        </section>
+
+        <section class="menu-grid">
+            
+            <div class="menu-card" data-category="rice">
+                <div class="card-img-container">
+                    <img src="images/chicken.jpg" alt="Chicken Wings">
+                </div>
+                <div class="card-info">
+                    <h4>2pcs Chicken Wings w/ Rice</h4>
+                    <p class="desc">Crispy wings with delightful flavors</p>
+                    <div class="price-add">
+                        <p class="price">₱ 89</p>
+                        <button class="add-btn">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="snacks">
+                <div class="card-img-container">
+                    <img src="images/fries.jpg" alt="Fries">
+                </div>
+                <div class="card-info">
+                    <h4>Fries</h4>
+                    <p class="desc">French fries with different flavors</p>
+                    <div class="price-add">
+                        <p class="price">₱ 89</p>
+                        <button class="add-btn">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="ramen">
+                <div class="card-img-container">
+                    <img src="images/ramen.jpg" alt="Ramen">
+                </div>
+                <div class="card-info">
+                    <h4>Ramen</h4>
+                    <p class="desc">Hot ramen with authentic taste</p>
+                    <div class="price-add">
+                        <p class="price">₱ 169</p>
+                        <button class="add-btn">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="sandwiches">
+                <div class="card-img-container">
+                    <img src="images/egg sandwich.jpg" alt="sandwiches">
+                </div>
+                <div class="card-info">
+                    <h4>Egg Sandwich</h4>
+                    <p class="desc">Fluffy egg sandwich</p>
+                    <div class="price-add">
+                        <p class="price">₱ 169</p>
+                        <button class="add-btn">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="drinks">
+                <div class="card-img-container">
+                    <img src="images/drinks.jpg" alt="drinks">
+                </div>
+                <div class="card-info">
+                    <h4>Fruity Drinks</h4>
+                    <p class="desc">Fruity drinks to ease the thirst</p>
+                    <div class="price-add">
+                        <p class="price">₱ 169</p>
+                        <button class="add-btn">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+
+            </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <h3>K-EGG</h3>
+                <p>Korean-Style Egg Sandwiches <br> Made Fresh Daily</p>
+            </div>
+            <div class="footer-center">
+                <h4>Hours</h4>
+                <p>Mon - Fri: 7 AM - 6 PM <br> Sat - Sun: 8 AM - 10 PM</p>
+            </div>
+            <div class="footer-right">
+                <h4>Find Us</h4>
+                <p>Maysan, Valenzuela <br> Metro Manila</p>
+            </div>
+        </div>
+        <div class="copyright container">
+            <p>&copy; 2026 K-Egg. All Rights Reserved.</p>
+        </div>
+    </footer>
+<script>
+    var filterButtons = document.querySelectorAll('.filter-btn');
+    var menuCards = document.querySelectorAll('.menu-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            var filterValue = button.getAttribute('data-filter');
+
+            menuCards.forEach(card => {
+                var cardCategory = card.getAttribute('data-category');
+                
+                if (filterValue === 'all' || filterValue === cardCategory) {
+                    card.style.display = 'block'; 
+                } else {
+                    card.style.display = 'none';  
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
